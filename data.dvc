@@ -1,3 +1,3 @@
 outs:
-- etag: d751713988987e9331980363e24189ce.dir
+- etag: 5396fd9a7b94b0140407a30aab3b6a28.dir
   path: s3://sagemaker-demo-sam/data
