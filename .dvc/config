@@ -1,4 +1,8 @@
 [cache]
     s3 = s3cache
+[core]
+    remote = storage
 ['remote "s3cache"']
     url = s3://sagemaker-demo-sam/cache
+['remote "storage"']
+    url = s3://sagemaker-dvc-repo/
