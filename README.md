@@ -92,7 +92,7 @@ Setup the remote for DVC (we use S3 as the remote for DVC) and commit the change
 
 ### Step 8: 
 
-Create a new notebook (use Python3 (Data Science) kernel) in SageMaker studio and follow main.ipynb notebook as a refrence to create the experiments in SageMaker and track the changes.
+Create a new notebook (use Python3 (Data Science) kernel) in SageMaker studio and follow main.ipynb notebook as a refrence point to create the experiments in SageMaker and track the changes.
 
 
 
