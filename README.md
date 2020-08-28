@@ -16,7 +16,7 @@ For the purpose of this demo, we use:
 
 ## Initial Setup
 
-Note: This initial setup need to be done just for the first time
+Note: This initial setup needs to be done just for the first time
 
 ### Step 1: 
 
