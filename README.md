@@ -1,12 +1,12 @@
 # sagemaker-dvc-demo
 
-Machine Learning (ML) applications can change in three axis (data, code and model) and we need to implement a mechanism to  track these changes during development and delivery process. This repository is for active development of a demo that can demosntrate how to use AWS Sagemaker Service for the purpose of ML application development and also track the changes Code, data and models.
+Machine Learning (ML) applications can change in three axis (data, code and model) and we need to implement a mechanism to track the changes during the development and delivery process. This repository is for active development of a demo that can demosntrate how to use AWS Sagemaker Service for the purpose of ML application development and also track the changes in code, data and models.
 
 For the purpose of this demo, we use:
 
 - Git to track changes in code
 - Data Version Control (DVC) to track changes in data stored in Amazon S3
-- SageMaker Experiment to track the experiment observations
+- Amazon SageMaker Experiment to track the experiment observations
 
 
 ## Prerequisites
@@ -20,7 +20,7 @@ Note: This initial setup need to be done just for the first time
 
 ### Step 1: 
 
-Create a Repository (e.g. Github) for source code (e.g. sagemaker-dvc-demo)
+Create a Repository (e.g. [Github](https://docs.github.com/en/enterprise/2.16/user/github/getting-started-with-github/create-a-repo)) for source code (e.g. sagemaker-dvc-demo)
 
 
 ### Step 2: 
