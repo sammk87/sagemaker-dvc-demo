@@ -29,9 +29,12 @@ Note: make sure to attach S3 Full acess policy to sagemaker execution role
 
 ### Step 3: [Create an S3 Bucket to store data and DVC artifacts](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html)
 
+
 Note: Make sure to create this bucket in the same region as SageMaker studio
 
-### Step 4: Setup git
+### Step 4: Create a folder named data in S3 bucket
+
+### Step 5: Setup git
 
 - Open SageMaker Studio and from Git menu bar, choose “open git repo in terminal”
 
@@ -54,7 +57,7 @@ Note: Make sure to create this bucket in the same region as SageMaker studio
 
         git pull origin master
 
-### Step 5: Install DVC & commit changes to Git
+### Step 6: Install DVC & commit changes to Git
 
         pip install dvc
         dvc init
@@ -62,7 +65,7 @@ Note: Make sure to create this bucket in the same region as SageMaker studio
 
 Note: DVC automatically add the changes to git commit
 
-### Step 6: Setup the remote for DVC (we use S3 as the remote for DVC) and commit the changes into git
+### Step 7: Setup the remote for DVC (we use S3 as the remote for DVC) and commit the changes into git
 
     dvc remote add -d storage s3://BUCKETNAME/  # use the bucket name that was created in step 3
     git commit .dvc/config -m "initialize DVC local remote"
@@ -73,7 +76,7 @@ Note: DVC automatically add the changes to git commit
     git commit -m "add source data to DVC"
     git push --set-upstream origin master
 
-### Step 7: Create a new notebook (use Python3 (Data Science) kernel) in SageMaker studio and follow main.ipynb notebook as a refrence to create the experiments in SageMaker and track changes
+### Step 8: Create a new notebook (use Python3 (Data Science) kernel) in SageMaker studio and follow main.ipynb notebook as a refrence to create the experiments in SageMaker and track changes
 
 
 
