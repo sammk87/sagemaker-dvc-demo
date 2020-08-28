@@ -1,6 +1,6 @@
 # sagemaker-dvc-demo
 
-Machine Learning (ML) applications can change in three axis (data, code and model) and we need to implement a mechanism to track the changes during the development and delivery process. This repository is for active development of a demo that can demosntrate how to use AWS Sagemaker Service for the purpose of ML application development and also track the changes in code, data and models.
+Machine Learning (ML) applications can change in three axes (data, code and model) and we need to implement a mechanism to track the changes during the development and delivery process. This repository is for active development of a demo that can demosntrate how to use AWS Sagemaker Service for the purpose of ML application development and also track the changes in code, data and models.
 
 For the purpose of this demo, we use:
 
