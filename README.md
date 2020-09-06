@@ -1,6 +1,6 @@
 # sagemaker-dvc-demo
 
-Machine Learning (ML) applications can change in three axes (data, code and model) and we need to implement a mechanism to track the changes during the development and delivery process. This repository is for active development of a demo that can demosntrate how to use AWS Sagemaker Service for the purpose of ML application development and also track the changes in code, data and models.
+Machine Learning (ML) applications can change in three axes (data, code and model) and we need to implement a mechanism to track the changes during the ML experimentation process. This repository is for active development of a demo that can demosntrate how to use Amazon Sagemaker for the purpose of ML application development and use Amazon SageMaker Experiment and Data Version Control (DVC) to track changes in ML model and dataset.
 
 For the purpose of this demo, we use:
 
@@ -20,14 +20,12 @@ Note: This initial setup needs to be done just for the first time
 
 ### Step 1: 
 
-Create a Repository (e.g. [Github](https://docs.github.com/en/enterprise/2.16/user/github/getting-started-with-github/create-a-repo)) for source code (e.g. sagemaker-dvc-demo)
+Create an Empty Repository (e.g. [Github](https://docs.github.com/en/enterprise/2.16/user/github/getting-started-with-github/create-a-repo)) for source code (e.g. sagemaker-dvc-demo)
 
 
 ### Step 2: 
 
-[Setup Sagemaker Studio](https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html)
-
-Note: Currently Sageaker studio is not available in all regions. This demo was built in North Virginia Region
+[Setup a Notebook instance in Amazon Sagemaker ](https://docs.aws.amazon.com/sagemaker/latest/dg/howitworks-create-ws.html)
 
 Note: make sure to attach S3 Full acess policy to sagemaker execution role
 
@@ -36,19 +34,19 @@ Note: make sure to attach S3 Full acess policy to sagemaker execution role
 [Create an S3 Bucket to store data and DVC artifacts](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html)
 
 
-Note: Make sure to create this bucket in the same region as SageMaker studio
+Note: Make sure to create this bucket in the same region as of Amazon Sagemaker instance
 
-### Step 4: 
-
+### Step 4:
 Create a folder named data in S3 bucket
+
 
 ### Step 5: 
 
 Setup git...
 
-- Open SageMaker Studio and from Git menu bar, choose “open git repo in terminal”
+- From Notbook instance, open Jupyter lab and from Git menu bar, choose “open git repo in terminal”
 
-- Use the following commands and setup git in SageMaker studio
+- Use the following commands to setup git in SageMaker Notebook
   
         mkdir sagemaker-dvc-demo
         cd sagemaker-dvc-demo
@@ -57,7 +55,7 @@ Setup git...
         git init
         git remote add origin <remote> #Replace REMOTE with your git repo. url
 
-- (Optional) To avoid entering password every time with git, you can generate a ssh key, add it to your git account and update the remote origin url
+- (Optional) To avoid entering password with every git command, you can generate a ssh key, add it to your git account and update the remote origin url
   
        ssh-keygen -t rsa -b 4096 -C "EMAIL"  ##Replace with your source control account email address
        cat  ~/.ssh/id_rsa.pub   # Copy the content and add it to git account
@@ -92,7 +90,7 @@ Setup the remote for DVC (we use S3 as the remote for DVC) and commit the change
 
 ### Step 8: 
 
-Create a new notebook (use Python3 (Data Science) kernel) in SageMaker studio and follow main.ipynb notebook as a refrence point to create the experiments in SageMaker and track the changes.
+Create a new notebook (use Python3) in SageMaker and follow the main.ipynb file in this repo. to integrate Amazon SageMaker experiment with DVC track the changes.
 
 
 
