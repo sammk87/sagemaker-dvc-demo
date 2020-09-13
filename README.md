@@ -37,7 +37,14 @@ Note: make sure to attach S3 Full acess policy to sagemaker execution role
 Note: Make sure to create this bucket in the same region as of Amazon Sagemaker instance
 
 ### Step 4:
-Create a folder named data in S3 bucket
+Create the following folder structure in S3 bucket:
+
+        sagemaker
+        |----train
+        |----validation
+        |----test
+        |----output
+
 
 
 ### Step 5: 
@@ -48,6 +55,7 @@ Setup git...
 
 - Use the following commands to setup git in SageMaker Notebook
   
+        cd SageMaker
         mkdir sagemaker-dvc-demo
         cd sagemaker-dvc-demo
         git config --global user.name "USERNAME" #Replace USERNAME with your source control username
@@ -55,10 +63,10 @@ Setup git...
         git init
         git remote add origin <remote> #Replace REMOTE with your git repo. url
 
-- (Optional) To avoid entering password with every git command, you can generate a ssh key, add it to your git account and update the remote origin url
+- (Optional) To avoid entering password with every git command, we recommand you to generate a ssh key, add it to your git account and update the remote origin url
   
        ssh-keygen -t rsa -b 4096 -C "EMAIL"  ##Replace with your source control account email address
-       cat  ~/.ssh/id_rsa.pub   # Copy the content and add it to git account
+       cat  ~/.ssh/id_rsa.pub   # Copy the content and add it as ssh key to git account
         git remote set-url origin git+ssh://git@github.com/USERNAME/REPONAME.git  # Replace USERNAME and REPONAME with yours
 
 - Pull the repo
@@ -83,14 +91,18 @@ Setup the remote for DVC (we use S3 as the remote for DVC) and commit the change
     git commit .dvc/config -m "initialize DVC local remote"
     dvc remote add  s3cache s3://BUCKETNAME/cache # use the bucket name that was created in step 3
     dvc config cache.s3 s3cache
-    dvc add --external s3://BUCKETNAME/data # use the bucket name that was created in step 3
-    git add .dvc/config data.dvc
+    dvc add --external s3://BUCKETNAME/sagemaker/train
+    dvc add --external s3://BUCKETNAME/sagemaker/validation
+    dvc add --external s3://BUCKETNAME/sagemaker/test
+    dvc add --external s3://BUCKETNAME/sagemaker/output
+    git add .dvc/config train.dvc validation.dvc test.dvc output.dvc
     git commit -m "add source data to DVC"
     git push --set-upstream origin master
+   
 
 ### Step 8: 
 
-Create a new notebook (use Python3) in SageMaker and follow the main.ipynb file in this repo. to integrate Amazon SageMaker experiment with DVC track the changes.
+Go to sagemaker-dvc-demo folder, create a new notebook (use conda_python3 kernel) and follow the main.ipynb file in this repo. to integrate Amazon SageMaker experiment with DVC and track the changes.
 
 
 
