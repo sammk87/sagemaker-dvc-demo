@@ -77,7 +77,7 @@ Setup git...
 
 Install DVC & commit changes to Git
 
-        pip install dvc==1.6.6
+        pip install dvc  # dvc version 1.6.4 is used for the purpose of this demo
         dvc init
         git commit -m "initial commit"
 
